@@ -1,0 +1,6 @@
+database:
+  database: "_env:YESOD_SQLITE_DATABASE:supercede-test.sqlite3"
+  poolsize: "_env:YESOD_SQLITE_POOLSIZE:10"
+
+port: "_env:YESOD_PORT:3000"
+host: "_env:YESOD_HOST:*4"

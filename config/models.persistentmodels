@@ -1,0 +1,4 @@
+User
+  name Text
+  password Text Maybe
+  deriving Typeable
