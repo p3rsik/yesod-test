@@ -2,6 +2,7 @@
 {-# LANGUAGE QuasiQuotes #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE ViewPatterns #-}
 
 module Foundation where
 
@@ -23,8 +24,8 @@ mkYesodData
     "App"
     [parseRoutes| 
 /api/echo EchoR POST
+/api/companies/#Int CompaniesR GET 
 |]
--- /api/clients ClientR GET
 
 instance Yesod App where
     approot = ApprootRequest $ \app req ->

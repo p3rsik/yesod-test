@@ -4,6 +4,7 @@
 {-# LANGUAGE TypeFamilies #-}
 
 {-# OPTIONS_GHC -Wno-orphans #-}
+{-# LANGUAGE ViewPatterns #-}
 
 module Application (appMain) where
 
