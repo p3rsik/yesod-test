@@ -1,4 +1,5 @@
 User
   name Text
   password Text Maybe
-  deriving Typeable
+  UniqueName name
+  deriving Typeable Show Eq

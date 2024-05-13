@@ -24,6 +24,7 @@ source-repository head
 library
   exposed-modules:
       Application
+      Common
       Foundation
       Handlers
       Model

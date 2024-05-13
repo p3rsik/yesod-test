@@ -1,28 +1,28 @@
-{-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE DeriveAnyClass #-}
-{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE TypeApplications #-}
+{-# LANGUAGE NoImplicitPrelude #-}
 
 module Handlers where
 
-import Yesod
-import Foundation
-import Network.Wai (Request(..))
 import ClassyPrelude hiding (Handler)
+import Network.Wai (Request (..))
+import Yesod
 
-data ApiVersion = V1 | V2 deriving (Eq, Show, Ord, Generic, ToJSON, FromJSON)
+import Common
+import Foundation
 
-newtype EchoResp = EchoResp ApiVersion deriving (Eq, Show, Generic, ToJSON)
+getHomeR :: Handler Value
+getHomeR = returnJson @_ @Text "Welcome to my test app!"
 
 postEchoR :: Handler Value
 postEchoR = do
-  req <- waiRequest
-  let headers = requestHeaders req
-      apiVersion = lookup "Api-Version" headers
-  case apiVersion of
-    (Just "v1") -> returnJson $ EchoResp V1
-    (Just "v2") -> returnJson $ EchoResp V2
-    _ -> invalidArgs ["Api-Version"]
+    req <- waiRequest
+    let headers = requestHeaders req
+        apiVersion = lookup "Api-Version" headers
+    case apiVersion of
+        (Just "v1") -> returnJson $ EchoResp V1
+        (Just "v2") -> returnJson $ EchoResp V2
+        _ -> invalidArgs ["Api-Version"]
 
-getCompaniesR :: Int -> Handler Value
-getCompaniesR companyId = undefined
+getUsersR :: Int -> Handler Value
+getUsersR userId = undefined

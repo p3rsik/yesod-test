@@ -2,9 +2,8 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeFamilies #-}
-
-{-# OPTIONS_GHC -Wno-orphans #-}
 {-# LANGUAGE ViewPatterns #-}
+{-# OPTIONS_GHC -Wno-orphans #-}
 
 module Application (appMain) where
 
@@ -37,13 +36,14 @@ import System.Log.FastLogger (
     toLogStr,
  )
 import Yesod
+import Yesod.Auth (getAuth)
 import Yesod.Core.Types (loggerSet)
 import Yesod.Default.Config2
 
 import Foundation
+import Handlers
 import Model
 import Settings (AppSettings (..), configSettingsYmlValue)
-import Handlers
 
 mkYesodDispatch "App" resourcesApp
 
