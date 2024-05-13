@@ -1,0 +1,7 @@
+.direnv/
+.stack-work/
+client_session_key.aes
+.envrc
+supercede-test.sqlite3
+supercede-test.sqlite3-*
+supercede-test/
